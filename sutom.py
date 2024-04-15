@@ -114,7 +114,7 @@ def calculate_score(word):
 def matches_pattern(word, pattern):
   """Returns a bool representing if a word matches the pattern"""
   for index, pattern_letter in enumerate(pattern):
-    if pattern_letter != '.' and word[index] != pattern_letter:
+    if pattern_letter not in ('.', word[index]):
       return False
   return True
 
