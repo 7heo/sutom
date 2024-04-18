@@ -108,7 +108,7 @@ So, let's add the `N` letter (which is entirely absent) to the `-n` argument,
 and the second `O` letter to a second "misplaced" argument:
 
 ```sh
-$ sutom/sutom.py POSIT.. -n ARE -m ......S -m .....O.
+$ sutom/sutom.py POSIT.. -n AREN -m ......S -m .....O.
 POSITIF (0.35231437278876243)
 $ _
 ```
@@ -117,7 +117,7 @@ We could have, of course, "aggregated" both `-m` arguments, as seen above, for
 the same result:
 
 ```sh
-$ sutom/sutom.py POSIT.. -n ARE -m .....OS
+$ sutom/sutom.py POSIT.. -n AREN -m .....OS
 POSITIF (0.35231437278876243)
 $ _
 ```
