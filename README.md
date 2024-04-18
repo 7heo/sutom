@@ -95,13 +95,14 @@ is technically simply a "misplaced" one. If it was not already marked as
 > since it is technically a "misplaced" letter, not an "invalid" one.
 
 > [!NOTE]
-> *Nota Bene: a "misplaced" letter having a "match" elsewhere in the pattern
-> means that there are two occurrences of that specific letter. There is
-> currently no way to represent that in this cheat script. One way would be to
-> input the letter twice in a single mismatched pattern, and another way would
-> be to introduce a new flag to set the number of known occurrences per letter.
-> However, given the low incidence of that scenario, and the relatively high
-> effort in implementation, I have elected not to implement it.*
+> *Nota Bene: The game reporting a "misplaced" letter that also has a "match"
+> elsewhere in the pattern means that there are two occurrences of that
+> specific letter. There is currently no way to represent that in this cheat
+> script. One way would be to input the letter twice in a single mismatched
+> pattern, and another way would be to introduce a new flag to set the number
+> of known occurrences per letter.  However, given the low incidence of that
+> scenario, and the relatively high effort in implementation, I have elected
+> not to implement it.*
 
 So, let's add the `N` letter (which is entirely absent) to the `-n` argument,
 and the second `O` letter to a second "misplaced" argument:
