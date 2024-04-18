@@ -63,7 +63,8 @@ I'll explain what we got here:
 > able to represent the game state accurately; but different lines can be
 > "aggregated" in one line, if the positions don't conflict. For instance, the
 > patterns `A...` and `...S` can be represented as `A..S`. **This isn't
-> possible with the `-n` argument, which MUST be a unique word.***
+> possible with the `-n` argument, which MUST be a single word and must be
+> present only once.***
 
 Ok, let's input that word in the second line, then.
 
