@@ -101,7 +101,7 @@ is technically simply a "misplaced" one. If it was not already marked as
 > input the letter twice in a single mismatched pattern, and another way would
 > be to introduce a new flag to set the number of known occurrences per letter.
 > However, given the low incidence of that scenario, and the relatively high
-> effort in implementation, I have elected not to implement it.
+> effort in implementation, I have elected not to implement it.*
 
 So, let's add the `N` letter (which is entirely absent) to the `-n` argument,
 and the second `O` letter to a second "misplaced" argument:
