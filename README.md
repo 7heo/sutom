@@ -128,3 +128,45 @@ Input that word, and there you go!
 entirely valid](README_imgs/sutom4.png)
 
 Hey, would you look at that, you won! Congratulations!! :partying_face:
+
+# Why the hard way?
+
+Because it's more interesting. Because it cannot be detected. But also because
+I can.
+
+## How to cheat the easy way, anyway?
+
+So you want to have that perfect "first try" score, every day? Fine.
+
+The game grabs the word of the day from a text file, and generates its URL via
+the `btoa` JavaScript function, using a predefined `GUID` and the date of the
+day in the `YYYY-MM-DD` notation; and suffixing `.txt` to it.
+
+The `GUID` is literally the default one from the
+<https://sutom.nocle.fr/js/instanceConfiguration.js> file, and the date of the
+day is, well, the date of the day.
+
+So, if you wanna cheat the *easy* way, just run this in your browser's console:
+
+```js
+fetch("/js/instanceConfiguration.js")
+  .then(r=>r.text())
+  .then(t=>t.split('\n')[15].split("=")[1].replaceAll(/[ ";]/g, ""))
+  .then(g=>btoa(g+'-'+(new Date).toISOString().substring(0,10)))
+  .then(b=>fetch('/mots/'+b+'.txt')
+  .then(r=>r.text())
+  .then(o=>console.log(o)));
+```
+If you feel like getting the word from tomorrow, or any other day, you can also
+put a date in the Date constructor, like so: `...(new Date('2024-01-01'))...`
+
+If you want to do the same in a terminal, run this:
+
+```sh
+$ curl -SsL 'https://sutom.nocle.fr/js/instanceConfiguration.js' \
+  | sed '16!d; s/^[^=]*=[^0-9ac]*//; s/";$/-/' \
+  | xargs -I_ date '+_%F' | tr -d '\n' | base64 \
+  | xargs -I_ curl -SsL 'https://sutom.nocle.fr/mots/_.txt'
+```
+
+Enjoy.
