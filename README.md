@@ -146,6 +146,16 @@ The `GUID` is literally the default one from the
 <https://sutom.nocle.fr/js/instanceConfiguration.js> file, and the date of the
 day is, well, the date of the day.
 
+> [!NOTE]
+> In the following code snippets, everything is more or less designed to be
+> impevious to change, except for one very hardcoded constant: the line number
+> of the `GUID` in the JavaScript file.
+>
+> This line is the line 16 at the time of writing (see the `[15]` in the
+> JavaScript browser console code, and the `'16!d` `sed` expression in the
+> shell code; because sed counts from 1), but it could very well change with
+> time.
+
 So, if you wanna cheat the *easy* way, just run this in your browser's console:
 
 ```js
@@ -154,8 +164,8 @@ fetch("/js/instanceConfiguration.js")
   .then(t=>t.split('\n')[15].split("=")[1].replaceAll(/[ ";]/g, ""))
   .then(g=>btoa(g+'-'+(new Date).toISOString().substring(0,10)))
   .then(b=>fetch('/mots/'+b+'.txt')
-  .then(r=>r.text())
-  .then(o=>console.log(o)));
+    .then(r=>r.text())
+    .then(o=>console.log(o)));
 ```
 If you feel like getting the word from tomorrow, or any other day, you can also
 put a date in the Date constructor, like so: `...(new Date('2024-01-01'))...`
